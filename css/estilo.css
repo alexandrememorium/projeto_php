@@ -1,0 +1,49 @@
+.menu {
+	margin-bottom: 25px;
+}
+
+.app {
+	margin-top: 25px;
+}
+
+.col-title {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.row {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.pagina {
+	border: solid 1px #DFDFDF;
+	padding: 25px !important;
+}
+
+.navbar-brand strong {
+	padding-left: 10;
+}
+
+li.list-group-item.active {
+	background-color: #fff;
+	border-color: #009933;
+	border-left: solid 10px #000;
+}
+
+li a {
+	color: #212529;
+}
+
+li a:hover {
+	text-decoration: none;
+}
+
+h4 {
+	color: #000 !important;
+	display: inline-block;
+}
+
+
