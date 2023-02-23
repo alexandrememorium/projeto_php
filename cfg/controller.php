@@ -162,6 +162,12 @@ if ($op == '1') {
 		$tarefapService = new ProdutoService($conexao, $tarefap);
 		$tarefasprod = $tarefapService->recuperar_prod();
 	}
-	
+	if ($acao == 'recuperar_itempedido') {
+		$tarefaiped = new Tarefa_IPedido();
+		//	$tarefaiped->__set('id', $_GET['id']);
+		$conexao = new Conexao();
+		$tarefaipService = new IPedService($conexao, $tarefaiped);
+		$tarefasip = $tarefaipService->recuperar_ipedido();
+	}		
 }
 ?>
