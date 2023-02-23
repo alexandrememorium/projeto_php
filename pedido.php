@@ -1,8 +1,9 @@
 <?php
 
 $acao = 'recuperar_pedido';
-$acao_i = 'recuperar_itempedido';
-$acao_c = 'recuperar_cliente';
+//$acao_i = 'recuperar_itempedido';
+//$acao_c = 'recuperar_cliente';
+//$acao_p = 'recuperar_produto';
 require 'controller.php';
 
 
@@ -104,14 +105,18 @@ echo '</pre>';
 												<th scope="col" style="width: 10%;text-align: end;">
 													<strong>Pedido</strong>
 												</th>
+												<th scope="col" style="width: 15%;text-align: center;"><strong>Dt.
+														Pediddo</strong></th>												
 												<th scope="col" style="width: 12%;text-align: end;"><strong>Cód.
 														Cli.</strong></th>
-												<th scope="col" width="38%"><strong>Cliente</strong></th>
-												<th scope="col" style="width: 15%;text-align: center;"><strong>Dt.
-														Pediddo</strong></th>
+												<th scope="col" width="28%"><strong>Cliente</strong></th>
+
 												<th scope="col" style="width: 12%;text-align: end;">
 													<strong>Total</strong>
 												</th>
+												<th scope="col" style="width: 10%;text-align: end;">
+													<strong>Status</strong>
+												</th>												
 												<th scope="col" style="width: 13%;text-align: center;"><span
 														class="fas fa-solid fa-plus fa-lg text-info"
 														data-bs-toggle="modal" data-bs-target="#Modalcadastro"
@@ -124,18 +129,21 @@ echo '</pre>';
 													<td style="width: 10%;text-align: end;">
 														<?= $tarefaped->NumeroPedido ?>
 													</td>
+													<td style="width: 15%;text-align: center;">
+														<?= $tarefaped->Dt_Pedido ?>
+													</td>													
 													<td style="width: 12%;text-align: end;">
 														<?= $tarefaped->Id_Cliente ?>
 													</td>
 													<td>
 														<?= $tarefaped->NomeCliente ?>
 													</td>
-													<td style="width: 15%;text-align: center;">
-														<?= $tarefaped->Dt_Pedido ?>
-													</td>
 													<td style="width: 12%;text-align: end;">
 														<?= $tarefaped->Total ?>
 													</td>
+													<td style="width: 10%;text-align: end;">
+														<?= $tarefaped->Status ?>
+													</td>													
 													<td style="width: 13%;text-align: center;">
 														<i class="fas fa-solid fa-plus fa-lg text"
 															onclick="cadItem(<?= $tarefaped->NumeroPedido ?>)"></i>
@@ -208,6 +216,7 @@ echo '</pre>';
 									<tr>
 										<th scope="col"><strong>Pedido</strong></th>
 										<th scope="col"><strong>Cód. Prod.</strong></th>
+										<th scope="col"><strong>Desc. Prod.</strong></th>
 										<th scope="col"><strong>Qtd</strong></th>
 										<th scope="col"><strong>Valor Unitário</strong></th>
 										<th scope="col"><strong>Total</strong></th>
@@ -225,6 +234,9 @@ echo '</pre>';
 											<td>
 												<?= $tarefaiped->Id_Produto ?>
 											</td>
+											<td>
+												<?= $tarefaiped->NomeProduto ?>
+											</td>											
 											<td>
 												<?= $tarefaiped->Qtd ?>
 											</td>
@@ -266,8 +278,12 @@ echo '</pre>';
 							maxlength="20" required value="<?= $tarefaped->NumeroPedido ?>">						
 
 						<label class="form-label">Cód. Produto</label>
-						<input type="text" class="form-control" id="codProdu" name="codProdu" placeholder="Código Produto"
-							maxlength="20" required>
+						<select class="form-control" id="codprod" name="codprod" required>
+						    <option selected></option>
+							<?php foreach ($tarefasprod as $indice => $tarefap) { ?>	
+    							<option value="<?= $tarefap->Id_Produto ?>"><?= $tarefap->NomeProduto ?></option>
+							<?php } ?>
+    					</select>
 
 
 						<label class="form-label">Quantidade</label>

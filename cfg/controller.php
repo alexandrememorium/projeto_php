@@ -15,8 +15,8 @@ if (($acao == 'inserir_cliente') || ($acao == 'recuperar_cliente') || ($acao == 
 } else if (($acao == 'inserir_produto') || ($acao == 'recuperar_produto') || ($acao == 'atualizar_produto') || ($acao == 'remover_produto')) {
     $op= '2';
 } else {
-	$acao_i = isset($_GET['acao_i']) ? $_GET['acao_i'] : $acao_i;
-	$acao_c = isset($_GET['acao_c']) ? $_GET['acao_c'] : $acao_c;
+//	$acao_i = isset($_GET['acao_i']) ? $_GET['acao_i'] : $acao_i;
+//	$acao_c = isset($_GET['acao_c']) ? $_GET['acao_c'] : $acao_c;
 	$op= '3';
 }
 
@@ -135,32 +135,33 @@ if ($op == '1') {
 } else if ($op == '3') {
 
 	if ($acao == 'recuperar_pedido') {
-
 		$tarefaped = new Tarefa_Pedido();
 		$conexao = new Conexao();
-
 		$tarefapService = new PedidoService($conexao, $tarefaped);
 		$tarefasped = $tarefapService->recuperar_pedido();
 
-	}
-
-	if ($acao_i == 'recuperar_itempedido') {
+	//}
+	//if ($acao_i == 'recuperar_itempedido') {
 		$tarefaiped = new Tarefa_IPedido();
 		//	$tarefaiped->__set('id', $_GET['id']);
-
 		$conexao = new Conexao();
-
 		$tarefaipService = new IPedService($conexao, $tarefaiped);
 		$tarefasip = $tarefaipService->recuperar_ipedido();
-	}
+	//}
 
-	if ($acao_c == 'recuperar_cliente') {
-
+	//if ($acao_c == 'recuperar_cliente') {
 		$tarefa = new Tarefa_Cliente();
 		$conexao = new Conexao();
-
 		$tarefaService = new ClienteService($conexao, $tarefa);
 		$tarefascli = $tarefaService->recuperar_cli();
+	//}
+
+	//if ($acao_p == 'recuperar_produto') {
+		$tarefap = new Tarefa_Produto();
+		$conexao = new Conexao();
+		$tarefapService = new ProdutoService($conexao, $tarefap);
+		$tarefasprod = $tarefapService->recuperar_prod();
 	}
+	
 }
 ?>

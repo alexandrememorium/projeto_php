@@ -118,7 +118,7 @@ echo '</pre>';
 													</td>
 													<td style="width: 15%;text-align: center;">
 														<i class="fas fa-edit fa-lg text-info"
-															onclick="editar(<?= $tarefap->Id_Produto ?>, ' <?= $tarefap->Codbarras ?>', '<?= $tarefap->NomeProduto ?>', '<?= $tarefap->ValorUnitario ?>')"></i>
+															onclick="editar(<?= $tarefap->Id_Produto ?>, '<?= $tarefap->Codbarras ?>', '<?= $tarefap->NomeProduto ?>', '<?= $tarefap->ValorUnitario ?>')"></i>
 
 														<i class="fas fa-trash-alt fa-lg text-danger"
 															onclick="remover(<?= $tarefap->Id_Produto ?>)"></i>

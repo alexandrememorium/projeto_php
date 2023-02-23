@@ -42,7 +42,7 @@ class ProdutoService
 	{
 
 		$query = "update produto set Codbarras = :cod, NomeProduto = :nome, ValorUnitario = :valor 
-		where Id_Produto = :id";
+			where Id_Produto = :id";
 		$stmt = $this->conexao->prepare($query);
 		$stmt->bindValue(':cod', $this->tarefap->__get('cod'));
 		$stmt->bindValue(':nome', $this->tarefap->__get('nome'));
@@ -64,7 +64,7 @@ class ProdutoService
 	{
 		$query = '
 			select 
-			p.Id_Produto, p.Codbarras, p.NomeProduto, p.ValorUnitario, DATE_FORMAT(p.dt_cadastro,"%d/%m/%Y  %Hh%im")  as data_cadastro
+				p.Id_Produto, p.Codbarras, p.NomeProduto, p.ValorUnitario, DATE_FORMAT(p.dt_cadastro,"%d/%m/%Y  %Hh%im")  as data_cadastro
 			from 
 				produto as p
 			where
@@ -72,6 +72,19 @@ class ProdutoService
 		';
 		$stmt = $this->conexao->prepare($query);
 		$stmt->bindValue(':id', $this->tarefap->__get('id'));
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_OBJ);
+	}
+
+	public function recuperar_prod()
+	{
+		$query = '
+			select 
+				p.Id_Produto, p.Codbarras, p.NomeProduto, p.ValorUnitario
+			from 
+				produto as p
+		';
+		$stmt = $this->conexao->prepare($query);
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_OBJ);
 	}

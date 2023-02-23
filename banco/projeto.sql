@@ -38,7 +38,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (5,'Alexandre','83495166076','alexandre.souza@memoriumtech.com','2023-02-02 20:48:41'),(7,'Leandro teste 01','83495166076','teste@teste.com','2023-02-02 21:29:13'),(8,'Marcela','83495166076','marcela@gmail.com','2023-02-02 21:36:13'),(9,'JosÃ© da Silva','83495166076','teste@teste.com','2023-02-02 22:35:54'),(31,'aaa','01055419071','aa@uol.com.br','2023-02-03 01:27:23'),(32,'JosÃ©','01055419071','jose@gmail.com','2023-02-16 23:47:23'),(42,'Alex','77375687005','alex@teste.com.br','2023-02-21 18:04:44');
+INSERT INTO `cliente` VALUES (5,'Alexandre','83495166076','alexandre@teste.com','2023-02-02 20:48:41'),(7,'Leonardo','83495166076','leonardo@teste.com','2023-02-02 21:29:13'),(8,'Marcelina','83495166076','marcelina@teste.com','2023-02-02 21:36:13'),(9,'JosÃ© da Silva','83495166076','teste@teste.com','2023-02-02 22:35:54'),(31,'Adalberto','01055419071','adalberto@teste.com.br','2023-02-03 01:27:23'),(32,'JosÃ©','01055419071','jose@teste.com','2023-02-16 23:47:23'),(42,'Alex','77375687005','alex@teste.com.br','2023-02-21 18:04:44');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,7 +66,7 @@ CREATE TABLE `item_pedido` (
 
 LOCK TABLES `item_pedido` WRITE;
 /*!40000 ALTER TABLE `item_pedido` DISABLE KEYS */;
-INSERT INTO `item_pedido` VALUES (1,1,3,10,10.00,'2023-02-10 00:50:35');
+INSERT INTO `item_pedido` VALUES (1,1,3,10,1.50,'2023-02-10 00:50:35');
 /*!40000 ALTER TABLE `item_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,6 +83,7 @@ CREATE TABLE `pedido` (
   `Dt_Pedido` date NOT NULL,
   `Total` decimal(19,2) NOT NULL,
   `Dt_Cadastro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Status` varchar(10) NOT NULL DEFAULT 'Aberto',
   PRIMARY KEY (`NumeroPedido`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -93,7 +94,7 @@ CREATE TABLE `pedido` (
 
 LOCK TABLES `pedido` WRITE;
 /*!40000 ALTER TABLE `pedido` DISABLE KEYS */;
-INSERT INTO `pedido` VALUES (1,5,'2023-02-09',100.00,'2023-02-10 00:49:34');
+INSERT INTO `pedido` VALUES (1,5,'2023-02-09',15.00,'2023-02-10 00:49:34','Aberto');
 /*!40000 ALTER TABLE `pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,7 +112,7 @@ CREATE TABLE `produto` (
   `ValorUnitario` decimal(19,2) NOT NULL,
   `Dt_Cadastro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id_Produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +121,7 @@ CREATE TABLE `produto` (
 
 LOCK TABLES `produto` WRITE;
 /*!40000 ALTER TABLE `produto` DISABLE KEYS */;
-INSERT INTO `produto` VALUES (3,'      000001','Produto Teste 01',11.11,'2023-02-10 00:35:49'),(4,'C000002','Produto Teste 02',112.22,'2023-02-16 23:34:04'),(5,'00000000000000000000','Teste Teste Teste Teste Teste Teste Teste Teste Teste',123.33,'2023-02-17 01:25:21');
+INSERT INTO `produto` VALUES (3,'Caneta00000000000001','Caneta Bic Azul',1.50,'2023-02-10 00:35:49'),(4,'Caneta00000000000002','Caneta Bic Vermelha',3.50,'2023-02-16 23:34:04'),(5,'Caneta00000000000003','Caneta Bic Verde',2.50,'2023-02-17 01:25:21'),(7,'Caneta00000000000004','Caneta 4 Cores',6.50,'2023-02-23 12:06:47');
 /*!40000 ALTER TABLE `produto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -133,4 +134,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-22 15:01:51
+-- Dump completed on 2023-02-23  9:15:14

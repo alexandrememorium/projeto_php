@@ -28,7 +28,7 @@ class PedidoService
 	{
 		$query = '
 			select 
-				ped.NumeroPedido, ped.Id_Cliente, c.NomeCliente, ped.Total, DATE_FORMAT(ped.Dt_Pedido,"%d/%m/%Y")  as Dt_Pedido, DATE_FORMAT(ped.Dt_Cadastro,"%d/%m/%Y  %Hh%im")  as Dt_Cadastro
+				ped.NumeroPedido, ped.Id_Cliente, c.NomeCliente, ped.Total, ped.Status, DATE_FORMAT(ped.Dt_Pedido,"%d/%m/%Y")  as Dt_Pedido, DATE_FORMAT(ped.Dt_Cadastro,"%d/%m/%Y  %Hh%im")  as Dt_Cadastro
 			from 
 				pedido as ped
 			left outer join  cliente as c on c.id_Cliente = ped.Id_Cliente
@@ -41,11 +41,13 @@ class PedidoService
 	public function atualizar_pedido()
 	{
 
-		$query = "update pedido set Id_Cliente = :cliente, Id_Produto = :produto, Quantidade = :qtd
+		$query = "update pedido set Id_Cliente = :cliente, 
+									Quantidade = :qtd, 
+									Status = :status
 		  		  where NumeroPedido = :id";
 		$stmt = $this->conexao->prepare($query);
 		$stmt->bindValue(':cliente', $this->tarefaped->__get('cliente'));
-		$stmt->bindValue(':produto', $this->tarefaped->__get('produto'));
+		$stmt->bindValue(':status', $this->tarefaped->__get('status'));
 		$stmt->bindValue(':qtd', $this->tarefaped->__get('qtd'));
 		$stmt->bindValue(':id', $this->tarefaped->__get('id'));
 		return $stmt->execute();
