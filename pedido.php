@@ -299,32 +299,36 @@ echo '</pre>';
 									</tr>
 								</thead>
 								<tbody>
-									<tr id="colunas"></tr>
+									<script>
+										{idadosjs.map((t, index) => {
+												//if (t.NumeroPedido == document.getElementById("verid").value) {
+												document.write("<tr>");
+												document.write("<td>");
+												document.write(t.NumeroPedido);
+												document.write("</td>");
+												document.write("<td>");
+												document.write(t.Id_Produto);
+												document.write("</td>");
+												document.write("<td>");
+												document.write(t.NomeProduto);
+												document.write("</td>");
+												document.write("<td>");
+												document.write(t.Qtd);
+												document.write("</td>");
+												document.write("<td>");
+												document.write(t.ValorU);
+												document.write("</td>");
+												document.write("<td>");
+												document.write(t.Total);
+												document.write("</td>");
+												document.write("</tr>");
+												//}
 
-								<script>
-									 {idadosjs.map((t, index) =>{
-										let tr = "<tr>"
-										let td = "<td>"
-										let Coluna01 = t.NumeroPedido
-										let trf = "</tr>";
-										let tdf = "</td>";
-										let Coluna02 = t.Id_Produto; 
-										let Coluna03 = t.NomeProduto;
-										let Coluna04 = t.Qtd;
-										let Coluna05 = t.ValorU;
-										let Coluna06 = t.Total;
-										let Colunas = "";
-										    
-										    //If (idadosjs.NumeroPedido == getElementById("verid").value) {
-											  	Colunas = `${tr} ${td} ${Coluna01} ${tdf} ${td} ${Coluna02} ${tdf} ${td} ${Coluna03} ${tdf} ${td} ${Coluna04} ${tdf} ${td} ${Coluna05} ${tdf} ${td} ${Coluna06} ${tdf} ${trf}`;
-  												document.getElementById("colunas").innerHTML = Colunas;
-											//}
-										console.log(Colunas);
-										
-									 })}
-								</script>	
+											})
+										}
+									</script>
 								</tbody>
-							</table>																	
+							</table>
 						</div>
 					</div>
 				</div>
