@@ -1,7 +1,7 @@
 <?php
 
 $acao = 'recuperar_itempedido';
-require 'controller.php';
+require 'cfg/controllerped.php';
 
 
 echo '<pre>';

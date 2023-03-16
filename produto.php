@@ -1,7 +1,7 @@
 <?php
 
 $acao = 'recuperar_produto';
-require 'controller.php';
+require 'cfg/controllerprod.php';
 
 /*
 echo '<pre>';
@@ -17,7 +17,7 @@ echo '</pre>';
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Projeto NewTab Academy PHP</title>
-
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico?v=2" />
 	<link rel="stylesheet" href="css/estilo.css">
 	<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->

@@ -28,7 +28,7 @@ class PedidoService
 	{
 		$query = '
 			select 
-				ped.NumeroPedido, ped.Id_Cliente, c.NomeCliente, ped.Total, ped.Status, DATE_FORMAT(ped.Dt_Pedido,"%d/%m/%Y")  as Dt_Pedido, DATE_FORMAT(ped.Dt_Cadastro,"%d/%m/%Y  %Hh%im")  as Dt_Cadastro
+				ped.NumeroPedido, ped.Id_Cliente, c.NomeCliente, ped.Total, ped.Status, DATE_FORMAT(ped.Dt_Pedido,"%d/%m/%Y")  as Dt_Pedido, ped.Dt_Pedido as dtPed,  DATE_FORMAT(ped.Dt_Cadastro,"%d/%m/%Y  %Hh%im")  as Dt_Cadastro
 			from 
 				pedido as ped
 			left outer join  cliente as c on c.id_Cliente = ped.Id_Cliente
